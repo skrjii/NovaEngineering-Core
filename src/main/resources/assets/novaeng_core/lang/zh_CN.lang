@@ -1,7 +1,7 @@
 item.hypernet_connect_card.tooltip.1=§9这张存储卡可以储存一个 HyperNet 梦之网络的频段和坐标信息，存储的密钥经过重重加密。
 item.hypernet_connect_card.tooltip.2=§9右击支持 梦之网络 的机械控制器，即可自动解析存储卡并连接至 梦之网络。
 item.hypernet_connect_card.tooltip.3=§a存储卡可以重复使用。
-item.hypernet_connect_card.tooltip.4=§c警告：使用时请保持 YD_网络转发中心在线。梦之网络 通讯距离无限，但是无法跨越维度。
+item.hypernet_connect_card.tooltip.4=§c警告：使用时请保持 YD网络转发中心在线。梦之网络 通讯距离无限，但是无法跨越维度。
 item.hypernet_connect_card.tooltip.no_pos.tip.0=§b存储卡中保存的坐标：§e空
 item.hypernet_connect_card.tooltip.no_pos.tip.1=§2右击任意等级的网络转发中心控制器来写入数据。
 item.hypernet_connect_card.tooltip.pos.tip.0=§b存储卡中保存的坐标：§a（X: %s, Y: %s, Z: %s）
@@ -199,7 +199,7 @@ top.ecalculator.thread_core.status.online=§a在线
 top.ecalculator.thread_core.threads=§9线程状态：
 top.ecalculator.thread_core.crafting=§9正在合成：
 
-tile.novaeng_core.hypernet_terminal_controller.name=梦之网络终端
+tile.novaeng_core.hypernet_terminal_controller.name=§bYD科技终端
 tile.novaeng_core.modular_server_assembler.name=模块服务器组装台（未实装）
 tile.novaeng_core.angel_block.name=天使方块+
 tile.novaeng_core.angel_block.tip.0=天使方块，但是更加智能！
