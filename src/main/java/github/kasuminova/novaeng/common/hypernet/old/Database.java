@@ -47,11 +47,11 @@ public class Database extends NetNode {
         event.getActiveRecipe().setTick(0);
 
         if (centerPos == null) {
-            event.setFailed(true, "未连接至计算网络！");
+            event.setFailed(true, "未连接至梦之网络！");
             return;
         }
         if (center == null) {
-            event.preventProgressing("未连接至计算网络！");
+            event.preventProgressing("未连接至梦之网络！");
             return;
         }
 
