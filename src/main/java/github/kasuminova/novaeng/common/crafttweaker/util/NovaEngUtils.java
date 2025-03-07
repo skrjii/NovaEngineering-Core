@@ -83,9 +83,9 @@ public class NovaEngUtils {
     @ZenMethod
     public static String formatFLOPS(double value) {
         if (value < 1000.0F) {
-            return formatDouble(value, 1) + "Y computational power";
+            return formatDouble(value, 1) + "Y_浮点算力";
         }
-        return formatDouble(value / 1000.0D, 1) + "D computational power";
+        return formatDouble(value / 1000.0D, 1) + "D_浮点算力";
     }
 
 }
