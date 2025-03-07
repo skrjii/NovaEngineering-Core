@@ -81,7 +81,7 @@ public class NovaEngUtils {
     }
 
     @ZenMethod
-    public static String formatcomputational power(double value) {
+    public static String formatFLOPS(double value) {
         if (value < 1000.0F) {
             return formatDouble(value, 1) + "Y computational power";
         }
