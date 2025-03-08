@@ -364,15 +364,15 @@ gui.terminal_controller.screen.info.unavailable.1=§c解锁该研究所有的前
 
 gui.terminal_controller.screen.info.toggle=§a点击切换未解锁和解锁状态的研究描述。§f
 
-gui.terminal_controller.screen.info.start=§a左击向研究站发送当前研究任务。
-gui.terminal_controller.screen.info.start.instant=§9中键点击向研究站强制发送当前研究任务，并立即完成研究（需要创造模式，网络中数据库已满时可能无法发送）。
-gui.terminal_controller.screen.info.reset=§e右击取消研究站当前正在进行的任务。
+gui.terminal_controller.screen.info.start=§a左击向科技研究中心发送当前研究任务。
+gui.terminal_controller.screen.info.start.instant=§9中键点击向科技研究中心强制发送当前研究任务，并立即完成研究（需要创造模式，网络中数据库已满时可能无法发送）。
+gui.terminal_controller.screen.info.reset=§e右击取消科技研究中心当前正在进行的任务。
 gui.terminal_controller.screen.info.start.time=§9预计耗时：%s 小时 %s 分钟 %s 秒（%s Ticks）。
 gui.terminal_controller.screen.info.start.warn.computation=§e警告：当前算力可能不足以完成研究。
 gui.terminal_controller.screen.info.start.error=§c无法开始研究。
-gui.terminal_controller.screen.info.start.error.tech_level=§c未找到研究站或研究站等级过低。
+gui.terminal_controller.screen.info.start.error.tech_level=§c未找到科技研究中心或科技研究中心等级过低。
 gui.terminal_controller.screen.info.start.error.computation=§c算力不足。
-gui.terminal_controller.screen.info.start.error.database_space=§c未找到网络数据库或网络数据库空间已满。
+gui.terminal_controller.screen.info.start.error.database_space=§c未找到数据存储中心或数据存储中心空间已满。
 gui.terminal_controller.screen.info.start.error.dependencies=§c缺失前置研究：%s
 
 gui.modular_server_assembler.assembly.cpu.name=CPU 槽位 §a#%s
