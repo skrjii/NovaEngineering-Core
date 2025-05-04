@@ -24,9 +24,9 @@ import javax.annotation.Nonnull;
 @SuppressWarnings("deprecation")
 public class BlockECalculatorParallelProc extends BlockECalculatorPart {
 
-    public static final BlockECalculatorParallelProc L4 = new BlockECalculatorParallelProc("l4", 256);
-    public static final BlockECalculatorParallelProc L6 = new BlockECalculatorParallelProc("l6", 2048);
-    public static final BlockECalculatorParallelProc L9 = new BlockECalculatorParallelProc("l9", 16384);
+    public static final BlockECalculatorParallelProc L4 = new BlockECalculatorParallelProc("l4", 16);
+    public static final BlockECalculatorParallelProc L6 = new BlockECalculatorParallelProc("l6", 64);
+    public static final BlockECalculatorParallelProc L9 = new BlockECalculatorParallelProc("l9", 256);
 
     protected final int parallelism;
 
