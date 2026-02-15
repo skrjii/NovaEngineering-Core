@@ -33,9 +33,10 @@ public final class ItemRawOre extends Item {
         @NotNull
         public ItemStack createIcon() {
             if (Icon == null) {
-                for (var value : allItemRawOre.values()) {
-                    return Icon = new ItemStack(value);
-                }
+                if (!allItemRawOre.isEmpty())
+                    for (var value : allItemRawOre.values())
+                        return Icon = new ItemStack(value);
+                return ItemStack.EMPTY;
             }
             return Icon;
         }
