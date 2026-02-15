@@ -62,9 +62,9 @@ public final class ItemRawOre extends Item {
         var key = type.getName() + "_" + this.name;
         this.setRegistryName(NovaEngineeringCore.getRL(key));
         this.setTranslationKey(NovaEngineeringCore.MOD_ID + '.' + key);
-        rawOD = type.getOdName(name);
-        oreOD = "ore" + name;
-        partOD = type.name().toLowerCase() + name;
+        this.rawOD = type.getOdName(name);
+        this.oreOD = "ore" + name;
+        this.partOD = type.name().toLowerCase() + name;
         allItemRawOre.put(this.name, this);
         allItemRawBlock.put(this.name, new BlockRawOre(name));
         OreDictionary.registerOre(this.getRawOD(), this);
@@ -194,7 +194,7 @@ public final class ItemRawOre extends Item {
     @NotNull
     public String getItemStackDisplayName(@NotNull ItemStack stack) {
         if (I18n.canTranslate(this.getTranslationKey(stack) + ".name")) return super.getItemStackDisplayName(stack);
-        return I18n.translateToLocalFormatted(type.localizationKey, I18n.translateToLocal("base.material." + name));
+        return I18n.translateToLocalFormatted(this.type.localizationKey, I18n.translateToLocal("base.material." + this.name));
     }
 
     public enum Type {
@@ -225,7 +225,7 @@ public final class ItemRawOre extends Item {
         }
 
         public String getOdName(String name) {
-            return odName + name;
+            return this.odName + name;
         }
     }
 
@@ -247,7 +247,7 @@ public final class ItemRawOre extends Item {
             this.setDefaultState(this.blockState.getBaseState());
             this.setTranslationKey(NovaEngineeringCore.MOD_ID + '.' + "raw_block_" + ItemRawOre.this.name);
             this.setRegistryName(NovaEngineeringCore.getRL("raw_block_" + ItemRawOre.this.name));
-            this.rawOD = type.getOdName(name);
+            this.rawOD = this.type.getOdName(name);
             this.item = new ItemBLockRawOre();
             allItemRawBlockItem.put(ItemRawOre.this.name, this.item);
         }
@@ -275,7 +275,7 @@ public final class ItemRawOre extends Item {
             public String getItemStackDisplayName(@NotNull ItemStack stack) {
                 if (I18n.canTranslate(this.getTranslationKey(stack) + ".name"))
                     return super.getItemStackDisplayName(stack);
-                return I18n.translateToLocalFormatted(type.localizationKey, I18n.translateToLocal("base.material." + name));
+                return I18n.translateToLocalFormatted(BlockRawOre.this.type.localizationKey, I18n.translateToLocal("base.material." + ItemRawOre.this.name));
             }
         }
 

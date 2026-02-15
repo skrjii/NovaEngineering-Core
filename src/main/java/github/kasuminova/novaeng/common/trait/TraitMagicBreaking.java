@@ -10,7 +10,7 @@ public class TraitMagicBreaking extends ToolModifier {
 
     public TraitMagicBreaking() {
         super("magic_breaking", 0x8470FF);
-        addAspects(new ModifierAspect.SingleAspect(this), new ModifierAspect.DataAspect(this), ModifierAspect.freeModifier);
+        this.addAspects(new ModifierAspect.SingleAspect(this), new ModifierAspect.DataAspect(this), ModifierAspect.freeModifier);
     }
 
     @Override

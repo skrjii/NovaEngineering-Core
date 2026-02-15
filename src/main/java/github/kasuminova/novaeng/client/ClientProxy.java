@@ -3,6 +3,7 @@ package github.kasuminova.novaeng.client;
 import appeng.api.features.IWirelessTermHandler;
 import appeng.helpers.WirelessTerminalGuiObject;
 import baubles.api.BaublesApi;
+import com.github.bsideup.jabel.Desugar;
 import github.kasuminova.mmce.client.renderer.MachineControllerRenderer;
 import github.kasuminova.novaeng.NovaEngCoreConfig;
 import github.kasuminova.novaeng.NovaEngineeringCore;
@@ -52,6 +53,8 @@ import lombok.Getter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -62,6 +65,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -75,6 +79,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
+import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.book.TinkerBook;
 
 import javax.annotation.Nullable;
@@ -108,8 +113,7 @@ public class ClientProxy extends CommonProxy {
             var od = OreDictionary.getOres(odName);
             if (!od.isEmpty()) {
                 var stack = od.get(0);
-                var item = stack.getItem();
-                color = getColorForItemStack(od.get(0)).getRGB();
+                color = getColorForItemStack(stack).getRGB();
             } else {
                 color = Color.WHITE.getRGB();
             }
@@ -216,19 +220,19 @@ public class ClientProxy extends CommonProxy {
         for (var item : colorsItems) {
             if (item instanceof ItemRawOre r) {
                 final int i = getColorForODFirst(r.getPartOD());
-                itemColors.n$put(item, (stark, ii) -> i);
+                itemColors.n$put(item, new IColor(i));
                 continue;
             }
             if (item instanceof ItemRawOre.BlockRawOre.ItemBLockRawOre r) {
                 final int i = getColorForODFirst(r.getPartOD());
-                itemColors.n$put(item, (stark, ii) -> i);
+                itemColors.n$put(item, new IColor(i));
             }
         }
         colorsItems = null;
 
         for (var block : colorsBlocks) {
             final int i = getColorForODFirst(block.getPartOD());
-            blockColors.n$put(block, (state, worldIn, pos, ii) -> i);
+            blockColors.n$put(block, new IColor(i));
         }
         colorsBlocks = null;
 
@@ -242,6 +246,20 @@ public class ClientProxy extends CommonProxy {
         TinkerBook.INSTANCE.addTransformer(BookTransformerAppendModifiers.INSTANCE_FALSE);
 
         TitleUtils.setRandomTitle("*PostInit*");
+    }
+
+    @Desugar
+    private record IColor(int color) implements IBlockColor, IItemColor {
+
+        @Override
+        public int colorMultiplier(@NotNull IBlockState state, @org.jetbrains.annotations.Nullable IBlockAccess worldIn, @org.jetbrains.annotations.Nullable BlockPos pos, int tintIndex) {
+            return this.color;
+        }
+
+        @Override
+        public int colorMultiplier(@NotNull ItemStack stack, int tintIndex) {
+            return this.color;
+        }
     }
 
     @Override
