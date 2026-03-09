@@ -24,7 +24,7 @@ import github.kasuminova.novaeng.client.handler.ClientEventHandler;
 import github.kasuminova.novaeng.client.handler.HyperNetClientEventHandler;
 import github.kasuminova.novaeng.client.handler.MachineAssemblyHandlerClient;
 import github.kasuminova.novaeng.client.model.raw_ore.RawOreModelLoader;
-import github.kasuminova.novaeng.client.util.ExJEI;
+// import github.kasuminova.novaeng.client.util.ExJEI;
 import github.kasuminova.novaeng.client.util.TitleUtils;
 import github.kasuminova.novaeng.common.CommonProxy;
 import github.kasuminova.novaeng.common.command.CommandPacketProfiler;
@@ -202,9 +202,9 @@ public class ClientProxy extends CommonProxy {
     public void init() {
         super.init();
 
-        if (Loader.isModLoaded("ic2") && Loader.isModLoaded("randomtweaker")) {
-            ExJEI.jeiCreate();
-        }
+        // if (Loader.isModLoaded("ic2") && Loader.isModLoaded("randomtweaker")) {
+        //     ExJEI.jeiCreate();
+        // }
 
         TitleUtils.setRandomTitle("*Init*");
     }
@@ -239,9 +239,9 @@ public class ClientProxy extends CommonProxy {
         ClientCommandHandler.instance.registerCommand(ExportResearchDataToJson.INSTANCE);
         ClientCommandHandler.instance.registerCommand(CommandPacketProfiler.INSTANCE);
 
-        if (Loader.isModLoaded("ic2") && Loader.isModLoaded("randomtweaker")) {
-            ExJEI.jeiRecipeRegister();
-        }
+        // if (Loader.isModLoaded("ic2") && Loader.isModLoaded("randomtweaker")) {
+        //     ExJEI.jeiRecipeRegister();
+        // }
 
         TinkerBook.INSTANCE.addTransformer(BookTransformerAppendModifiers.INSTANCE_FALSE);
 
